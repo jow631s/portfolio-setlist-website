@@ -1,0 +1,28 @@
+{
+  "name": "setlist-website",
+  "version": "1.0.0",
+  "description": "let's find a job",
+  "main": "app.js",
+  "scripts": {
+    "test": "none",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jow631s/portfolio-setlist-website.git"
+  },
+  "author": "Jacob Wyrick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jow631s/portfolio-setlist-website/issues"
+  },
+  "homepage": "https://github.com/jow631s/portfolio-setlist-website#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
