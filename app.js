@@ -1,8 +1,14 @@
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const port = 3000;
 
-//set view engine to EJS
+// Static Files
+app.use(express.static('public'));
+
+//set view engine to EJS and use EJS layouts
+app.use(expressLayouts)
+app.set('layout', './layouts/full-width')
 app.set('view engine', 'ejs');
 
 // use res.render to load up an ejs view file
