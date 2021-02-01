@@ -1,0 +1,12 @@
+{
+  "defaultEnv": "pg",
+
+  "pg": {
+    "driver": "pg",
+    "user": "setlist_app",
+    "password": "linekleenexlamp",
+    "host": "localhost",
+    "database": "setlist_app",
+    "port": "54321"
+  }
+}

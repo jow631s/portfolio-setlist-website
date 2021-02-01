@@ -6,5 +6,5 @@ docker run -d \
     -e POSTGRES_USER=setlist_app \
     -e PGDATA=/var/lib/postgresql/data/pgdata \
     -v /Users/jacobwyrick/pgdata:/var/lib/postgresql/data \
-    -p 5432:5432 \
+    -p 54321:5432 \
     postgres

@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "none",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "migrate-up": "npx db-migrate up",
+    "migrate-down": "npx db-migrate down"
   },
   "repository": {
     "type": "git",
@@ -19,11 +21,14 @@
   "homepage": "https://github.com/jow631s/portfolio-setlist-website#readme",
   "dependencies": {
     "bootstrap": "^5.0.0-beta1",
+    "db-migrate": "^0.11.12",
+    "db-migrate-pg": "^1.2.2",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   }
 }

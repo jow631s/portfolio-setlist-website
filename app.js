@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
@@ -22,6 +23,9 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {
   res.render('pages/about');
 });
+
+console.log('===============================');
+console.log(process.env.DB_USERNAME);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
