@@ -3,8 +3,8 @@
 
   "pg": {
     "driver": "pg",
-    "user": "setlist_app",
-    "password": "linekleenexlamp",
+    "user": {"ENV": "DB_USERNAME"},
+    "password": {"ENV": "DB_PASSWORD"},
     "host": "localhost",
     "database": "setlist_app",
     "port": "54321"

@@ -14,16 +14,21 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
+//using migrate-up will create the following table
 exports.up = function(db) {
-  return db.createTable('setlists', {
-    id: { type: 'int', primaryKey: true },
-    name: 'string',
-    description: 'string'
+  return db.createTable('bands', {
+    id: { 
+      type: 'int', 
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: 'string'
   });
 };
 
+//migrate down will then delete that table
 exports.down = function(db) {
-  return db.dropTable('setlists');
+  return db.dropTable('bands');
 };
 
 exports._meta = {

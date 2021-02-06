@@ -14,14 +14,28 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
+//using migrate-up will create the following table
 exports.up = function(db) {
   return db.createTable('users', {
-    id: { type: 'int', primaryKey: true },
+    id: { 
+      type: 'int', 
+      primaryKey: true,
+      autoIncrement: true
+    },
+    username: 'string',
     first_name: 'string',
-    last_name: 'string'
+    last_name: 'string',
+    email: 'string',
+    address_1: 'string',
+    address_2: 'string',
+    city: 'string',
+    state: 'string',
+    zip: 'int',
+    phone: 'string'
   });
 };
 
+//migrate down will then delete that table
 exports.down = function(db) {
   return db.dropTable('users');
 };
