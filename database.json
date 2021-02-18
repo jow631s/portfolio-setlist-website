@@ -5,8 +5,8 @@
     "driver": "pg",
     "user": {"ENV": "DB_USERNAME"},
     "password": {"ENV": "DB_PASSWORD"},
-    "host": "localhost",
-    "database": "setlist_app",
-    "port": "54321"
+    "host": {"ENV": "DB_HOST"},
+    "database": {"ENV": "DB_NAME"},
+    "port": {"ENV": "DB_PORT"}
   }
 }
