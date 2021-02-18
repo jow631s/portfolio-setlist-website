@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Static Files
 app.use(express.static('public'));
@@ -18,6 +18,10 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
   res.render('pages/index');
 });
+
+// users page
+
+app.use('/users', require('./controllers/users_controller'));
 
 // about page
 app.get('/about', function(req, res) {
