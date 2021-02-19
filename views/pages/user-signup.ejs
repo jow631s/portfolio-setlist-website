@@ -1,0 +1,21 @@
+<h1>Sign up below!</h1>
+  <form action="/user-signup" method="POST">
+    <div class="form-group">
+      <label for="signupEmail">Email address</label>
+      <input type="email" class="form-control" id="signupEmail" name="signupEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="requestedUsername">Username</label>
+      <input type="text" class="form-control" id="requestedUsername" name="requestedUsername" placeholder="Username" required>
+    </div>
+    <div class="form-group">
+      <label for="userFirstNameInput">First Name</label>
+      <input type="text" class="form-control" id="userFirstNameInput" name="userFirstNameInput" placeholder="First Name" required>
+    </div>
+    <div class="form-group">
+      <label for="userLastNameInput">Last Name</label>
+      <input type="text" class="form-control" id="userLastNameInput" name="userLastNameInput" placeholder="Last Name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
