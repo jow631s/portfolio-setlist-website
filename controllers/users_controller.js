@@ -5,7 +5,7 @@ const { db } = require('../lib/db');
 router.get('/', async function(req, res) {
   const userResults = await db.query('SELECT * FROM users');
   console.log('***user results***', userResults.rows);
-  res.render('pages/users', {
+  res.render('pages/users/users', {
     users: userResults.rows
   });
 });
@@ -22,7 +22,16 @@ router.post('/createNewUser', function (req, res, next) {
     }
   })
   console.log(req.body);
-  res.redirect('/signup-success');
+  res.redirect('/users/signup-success');
 });
+
+router.get('/signup', function(req, res) {
+  res.render('pages/users/user-signup');
+});
+
+router.get('/signup-success', function(req, res) {
+  res.render('pages/users/signup-success');
+});
+
 
 module.exports = router;
