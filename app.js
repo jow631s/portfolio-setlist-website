@@ -38,21 +38,19 @@ app.get('/user-signup', function(req, res) {
   res.render('pages/user-signup');
 });
 
-//create new user
-app.post('/user-signup', function (req, res) {
-  const { signupEmail, userFirstNameInput, userLastNameInput, requestedUsername } = req.body;
-  const text = 'INSERT INTO users(username, first_name, last_name, email) VALUES($1, $2, $3, $4)';
-  const values = [requestedUsername ,userFirstNameInput, userLastNameInput, signupEmail];
-  db.query(text, values, (err, res) => {
-    if (err) {
-      console.log(err.stack);
-    } else {
-      console.log(res.rows);
-    }
-  })
-  console.log(signupEmail, userFirstNameInput, userLastNameInput);
-})
+//sign-up success page
+app.get('/signup-success', function(req, res) {
+  res.render('pages/signup-success');
+});
 
+//create new user
+app.use('/user-signup_controller', require('./controllers/users_controller'));
+
+
+//testing
+app.get('/test', function(req, res) {
+  res.send('what does send do????')
+});
 
 console.log('===============================');
 console.log(process.env.DB_USERNAME);

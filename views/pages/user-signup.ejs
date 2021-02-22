@@ -1,5 +1,5 @@
 <h1>Sign up below!</h1>
-  <form action="/user-signup" method="POST">
+  <form action="/users/createNewUser" method="POST">
     <div class="form-group">
       <label for="signupEmail">Email address</label>
       <input type="email" class="form-control" id="signupEmail" name="signupEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -7,15 +7,39 @@
     </div>
     <div class="form-group">
       <label for="requestedUsername">Username</label>
-      <input type="text" class="form-control" id="requestedUsername" name="requestedUsername" placeholder="Username" required>
+      <input type="text" class="form-control" id="requestedUsername" name="requestedUsername" placeholder="desired username" required>
     </div>
     <div class="form-group">
       <label for="userFirstNameInput">First Name</label>
-      <input type="text" class="form-control" id="userFirstNameInput" name="userFirstNameInput" placeholder="First Name" required>
+      <input type="text" class="form-control" id="userFirstNameInput" name="userFirstNameInput" placeholder=" your first name" required>
     </div>
     <div class="form-group">
       <label for="userLastNameInput">Last Name</label>
-      <input type="text" class="form-control" id="userLastNameInput" name="userLastNameInput" placeholder="Last Name" required>
+      <input type="text" class="form-control" id="userLastNameInput" name="userLastNameInput" placeholder="your last name" required>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+      <label for="userAddress1">Address</label>
+      <input type="text" class="form-control" id="userAddress1" name="userAddress1" placeholder=" your street address - Line 1" required>
+    </div>
+    <div class="form-group">
+      <label for="userAddress2">Address, cont.</label>
+      <input type="text" class="form-control" id="userAddress2" name="userAddress2" placeholder="your street address - Line 2 (optional)">
+    </div>
+    <div class="form-group">
+      <label for="userCity">City</label>
+      <input type="text" class="form-control" id="userCity" name="userCity" placeholder=" your city" required>
+    </div>
+    <div class="form-group">
+      <label for="userState">State</label>
+      <input type="text" class="form-control" id="userState" name="userState" placeholder="your state" required>
+    </div>
+    <div class="form-group">
+      <label for="userZipCode">Zip Code</label>
+      <input type="text" class="form-control" id="userZipCode" name="userZipCode" placeholder="your zip code" required>
+    </div>
+    <div class="form-group">
+      <label for="userPhoneNumber">Phone Number</label>
+      <input type="text" class="form-control" id="userPhoneNumber" name="userPhoneNumber" placeholder=" your phone number" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
   </form>
