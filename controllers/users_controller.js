@@ -4,7 +4,7 @@ const { db } = require('../lib/db');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-router.get('/', async function(req, res) {
+router.get('/', async function (req, res) {
   const userResults = await db.query('SELECT * FROM users');
   console.log('***user results***', userResults.rows);
   res.render('pages/users/users', {
@@ -30,42 +30,37 @@ router.post('/createNewUser', async function (req, res) {
   res.redirect('/users/signup-success');
 });
 
-router.post('/authenticate', async function(req, res) {
+router.post('/authenticate', async function (req, res) {
   const { username, password } = req.body;
   const text = 'SELECT hashed_password FROM users WHERE username = $1';
   const values = [username];
-  db.query(text, values, (err, response) => {
+  try {
+    const response = await db.query(text, values);
     let hashedPassword = response.rows[0].hashed_password;
-    if (err) {
-      console.log(err.stack);     
+    const match = await bcrypt.compare(password, hashedPassword);
+    if (!match) {
+      res.status(401).send('Bad password');
     } else {
-      bcrypt.compare(password, hashedPassword, function(error, isMatch) {
-        if (error) {
-          console.log(error);
-        } else if (!isMatch) {
-          res.status(401).send('Bad password');
-        } else if (isMatch) {
-          res.redirect('/bands/band-select');
-        }
-      })
-      console.log(response.rows)
+      res.redirect('/bands/band-select');
     }
-  });
+  } catch (err) {
+    console.log(err.stack);
+  }
 });
 
-router.get('/signup', function(req, res) {
+router.get('/signup', function (req, res) {
   res.render('pages/users/user-signup');
 });
 
-router.get('/signup-success', function(req, res) {
+router.get('/signup-success', function (req, res) {
   res.render('pages/users/signup-success');
 });
 
-router.get('/sign-in', function(req, res) {
+router.get('/sign-in', function (req, res) {
   res.render('pages/users/user-sign-in');
 })
 
-router.get('/username-availability', async function(req, res) {
+router.get('/username-availability', async function (req, res) {
   const newUser = req.query.user;
   console.log(newUser);
   const existingUsernameResults = await db.query('SELECT username FROM USERS');
@@ -82,7 +77,7 @@ router.get('/username-availability', async function(req, res) {
     }
   }
   console.log('Available');
-  return 'Available';  
+  return 'Available';
 })
 
 
