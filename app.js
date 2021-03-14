@@ -17,15 +17,16 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// use res.render to load up an ejs view file
-
 // index page
 app.get('/', function(req, res) {
   res.render('pages/index');
 });
 
-// users page
+// users related material
 app.use('/users', require('./controllers/users_controller'));
+
+// band related material
+app.use('/bands', require('./controllers/bands_controller'));
 
 // about page
 app.get('/about', function(req, res) {
