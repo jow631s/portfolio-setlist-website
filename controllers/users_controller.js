@@ -60,25 +60,19 @@ router.get('/sign-in', function (req, res) {
   res.render('pages/users/user-sign-in');
 })
 
+const isAlreadyUser = (newUser, existingUsernames) => {
+  const arrayOfUsernames = existingUsernames.map(item => item.username.toLowerCase());
+  return arrayOfUsernames.includes(newUser.toLowerCase());
+}
+
 router.get('/username-availability', async function (req, res) {
   const newUser = req.query.user;
   console.log(newUser);
   const existingUsernameResults = await db.query('SELECT username FROM USERS');
   const existingUsernames = existingUsernameResults.rows;
-  const arrayOfUsernames = [];
-  for (let listing of existingUsernames) {
-    arrayOfUsernames.push(listing.username);
-  }
-  for (let name of arrayOfUsernames) {
-    name = name.toLowerCase();
-    if (name === newUser.toLowerCase()) {
-      console.log('Unavailable');
-      return 'Unavailable';
-    }
-  }
-  console.log('Available');
-  return 'Available';
-})
+  return isAlreadyUser(newUser, existingUsernames);
+});
 
 
 module.exports = router;
+module.exports = isAlreadyUser;
